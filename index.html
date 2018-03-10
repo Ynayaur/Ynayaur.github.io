@@ -160,6 +160,100 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-learning of c++" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/10/learning of c++/">c++学习笔记（一）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/10/learning of c++/" class="archive-article-date">
+  	<time datetime="2018-03-10T06:34:06.234Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、注释"><a href="#一、注释" class="headerlink" title="一、注释"></a>一、注释</h2><blockquote>
+<ul>
+<li>行注释<code>//</code>与C语言中的<code>/* */</code>都可使用；</li>
+<li>尽量使用行注释<code>//</code>来减少出错的机率。  </li>
+</ul>
+</blockquote>
+<h2 id="二、头文件"><a href="#二、头文件" class="headerlink" title="二、头文件"></a>二、头文件</h2><blockquote>
+<ul>
+<li><em>c++</em>保留了<em>c</em>中扩展名为<code>h</code>的头文件；</li>
+<li>纯粹的<em>c++</em>的头文件没有扩展名；</li>
+<li>部分<em>c</em>的头文件被转换为<em>c++</em> 的头文件，这些文件被重新命名去掉了扩展名<em>h</em>，并在文件名称前面加上前缀名<em>c</em>，例如转换得到的 <em>c++</em>版本的<code>math.h</code>为<code>cmath</code>；</li>
+<li><em>c++</em>旧式风格的代码的头文件以<code>.h</code>（如 <code>iostream.h</code> ）结尾，与<em>c++</em>新式风格相比，去掉.h不只是形式上的变化<ul>
+<li>例如：如果使用 <code>iostream</code> ，而不是<code>iostream.h</code>，则应该用<code>using namespace std</code>来使<code>iostream</code>中的定义对程序可用。<h2 id="三、名称空间（namespace）"><a href="#三、名称空间（namespace）" class="headerlink" title="三、名称空间（namespace）"></a>三、名称空间（<em>namespace</em>）</h2></li>
+</ul>
+</li>
+<li>名称空间支持是<em>c++</em> 的一项特性，有助于组织程序。</li>
+<li>按照这种分类方式，类、函数和变量便是c++编译器的标准组件，他们都被放置在名称空间<code>std</code>中（当头文件为<code>iostream</code>，不为<code>iostream</code>时）；这就意味着在<code>iostream</code>中定义的<code>cout</code>实际上是<code>std::cout</code>,<code>endl</code>实际上是<code>std::cout</code>，因此可以省略编译指令<code>using</code>，以如下方式进行编码：<br><code>std::cout &lt;&lt; &quot;Hello world!&quot;</code><br><code>std::cout &lt;&lt; endl;</code></li>
+<li>对每个类、变量、函数都单独指明名称空间太过麻烦，所以才有了<code>using</code>编译指令，<code>using namespace std;</code>这一行代码可以使得std名称空间中定义的所有名称可用，而不必使用std::前缀。 但这是一个偷懒的做法，在大型项目中可能由于存在两个命名空间中定义有相同的名称，这样调用时就可能由于编译器不知道你调用的是哪一个而出错。</li>
+<li>针对以上问题，更好的方法是，只使所需的名称可用，通过<code>using</code>声明来实现，例如：<br><code>using std::cout;　　//make cout available</code><br><code>using std::endl;　　//make endl available</code><br><code>using std::cin;　　　//make cin available</code></li>
+</ul>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/10/learning of c++/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-happy new year" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -473,6 +567,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">c++</a>
               </li>
             
             <div class="clearfix"></div>
