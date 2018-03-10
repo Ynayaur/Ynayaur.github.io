@@ -15,7 +15,7 @@
 <meta property="og:url" content="https://ynayaur.github.io/2018/03/10/learning of c++/index.html">
 <meta property="og:site_name" content="Ynayaur的博客">
 <meta property="og:description" content="一、注释  行注释//与C语言中的/* */都可使用； 尽量使用行注释//来减少出错的机率。     二、头文件  c++保留了c中扩展名为h的头文件； 纯粹的c++的头文件没有扩展名； 部分c的头文件被转换为c++ 的头文件，这些文件被重新命名去掉了扩展名h，并在文件名称前面加上前缀名c，例如转换得到的 c++版本的math.h为cmath； c++旧式风格的代码的头文件以.h（如 iostre">
-<meta property="og:updated_time" content="2018-03-10T08:31:50.700Z">
+<meta property="og:updated_time" content="2018-03-10T08:34:35.836Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c++学习笔记（一）">
 <meta name="twitter:description" content="一、注释  行注释//与C语言中的/* */都可使用； 尽量使用行注释//来减少出错的机率。     二、头文件  c++保留了c中扩展名为h的头文件； 纯粹的c++的头文件没有扩展名； 部分c的头文件被转换为c++ 的头文件，这些文件被重新命名去掉了扩展名h，并在文件名称前面加上前缀名c，例如转换得到的 c++版本的math.h为cmath； c++旧式风格的代码的头文件以.h（如 iostre">
@@ -195,9 +195,13 @@ ga('send', 'pageview');
 <li>纯粹的<em>c++</em>的头文件没有扩展名；</li>
 <li>部分<em>c</em>的头文件被转换为<em>c++</em> 的头文件，这些文件被重新命名去掉了扩展名<em>h</em>，并在文件名称前面加上前缀名<em>c</em>，例如转换得到的 <em>c++</em>版本的<code>math.h</code>为<code>cmath</code>；</li>
 <li><em>c++</em>旧式风格的代码的头文件以<code>.h</code>（如 <code>iostream.h</code> ）结尾，与<em>c++</em>新式风格相比，去掉.h不只是形式上的变化<ul>
-<li>例如：如果使用 <code>iostream</code> ，而不是<code>iostream.h</code>，则应该用<code>using namespace std</code>来使<code>iostream</code>中的定义对程序可用。<h2 id="三、名称空间（namespace）"><a href="#三、名称空间（namespace）" class="headerlink" title="三、名称空间（namespace）"></a>三、名称空间（<em>namespace</em>）</h2></li>
+<li>例如：如果使用 <code>iostream</code> ，而不是<code>iostream.h</code>，则应该用<code>using namespace std</code>来使<code>iostream</code>中的定义对程序可用。  </li>
 </ul>
 </li>
+</ul>
+</blockquote>
+<h2 id="三、名称空间（namespace）"><a href="#三、名称空间（namespace）" class="headerlink" title="三、名称空间（namespace）"></a>三、名称空间（<em>namespace</em>）</h2><blockquote>
+<ul>
 <li>名称空间支持是<em>c++</em> 的一项特性，有助于组织程序。</li>
 <li>按照这种分类方式，类、函数和变量便是c++编译器的标准组件，他们都被放置在名称空间<code>std</code>中（当头文件为<code>iostream</code>，不为<code>iostream</code>时）；这就意味着在<code>iostream</code>中定义的<code>cout</code>实际上是<code>std::cout</code>,<code>endl</code>实际上是<code>std::cout</code>，因此可以省略编译指令<code>using</code>，以如下方式进行编码：<br><code>std::cout &lt;&lt; &quot;Hello world!&quot;</code><br><code>std::cout &lt;&lt; endl;</code></li>
 <li>对每个类、变量、函数都单独指明名称空间太过麻烦，所以才有了<code>using</code>编译指令，<code>using namespace std;</code>这一行代码可以使得std名称空间中定义的所有名称可用，而不必使用std::前缀。 但这是一个偷懒的做法，在大型项目中可能由于存在两个命名空间中定义有相同的名称，这样调用时就可能由于编译器不知道你调用的是哪一个而出错。</li>
