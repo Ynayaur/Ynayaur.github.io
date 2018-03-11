@@ -197,8 +197,8 @@ ga('send', 'pageview');
 <li>名称空间支持是<em>c++</em> 的一项特性，有助于组织程序。</li>
 <li><p>按照这种分类方式，类、函数和变量便是c++编译器的标准组件，他们都被放置在名称空间<code>std</code>中（当头文件为<code>iostream</code>，不为<code>iostream</code>时）；这就意味着在<code>iostream</code>中定义的<code>cout</code>实际上是<code>std::cout</code>,<code>endl</code>实际上是<code>std::cout</code>，因此可以省略编译指令<code>using</code>，以如下方式进行编码:</p>
 <pre>
-     std::cout << "Hello world!"  
-     std::cout << endl;
+ std::cout << "Hello world!"  
+ std::cout << endl;
 </pre>
 </li>
 <li><p>对每个类、变量、函数都单独指明名称空间太过麻烦，所以才有了<code>using</code>编译指令，<code>using namespace std;</code>这一行代码可以使得std名称空间中定义的所有名称可用，而不必使用std::前缀。 但这是一个偷懒的做法，在大型项目中可能由于存在两个命名空间中定义有相同的名称，这样调用时就可能由于编译器不知道你调用的是哪一个而出错。</p>
@@ -210,7 +210,7 @@ ga('send', 'pageview');
 </pre> </li>
 <li>对于有多个函数的程序，如果多个函数都用到了<code>std</code>里的对象，则可以在函数外部，且在所有函数之前加一句<code>using the namespace std</code>，这样所有函数就都可以使用<code>std</code>里的对象了，否则必须在所有函数内部写这一语句，或上述的处理方法。</li>
 </ul>
-<h2 id="四、简单的输入-amp-输出（cout-amp-cin"><a href="#四、简单的输入-amp-输出（cout-amp-cin" class="headerlink" title="四、简单的输入&amp;输出（cout&amp;cin)"></a>四、简单的输入&amp;输出（<em>cout&amp;cin</em>)</h2><p><pre><br>        cout &lt;&lt; “Hello world!”<br>    cout &lt;&lt; endl;<br></pre></p>
+<h2 id="四、简单的输入-amp-输出（cout-amp-cin"><a href="#四、简单的输入-amp-输出（cout-amp-cin" class="headerlink" title="四、简单的输入&amp;输出（cout&amp;cin)"></a>四、简单的输入&amp;输出（<em>cout&amp;cin</em>)</h2><p><pre><br>    cout &lt;&lt; “Hello world!”<br>    cout &lt;&lt; endl;<br></pre></p>
 <ul>
 <li><p>以上为一个简单的输出字符串的操作，<code>cout</code> 是一个预定义的对象，其对象表示输出流，<code>&lt;&lt;</code> 是插入运算符，他可以将其右侧的信息插入到输出流中，从而将内容显示在屏幕上。字符串用<code>&quot; &quot;</code>包含起来；</p>
 </li>
