@@ -210,7 +210,7 @@ ga('send', 'pageview');
 </pre> </li>
 <li>对于有多个函数的程序，如果多个函数都用到了<code>std</code>里的对象，则可以在函数外部，且在所有函数之前加一句<code>using the namespace std</code>，这样所有函数就都可以使用<code>std</code>里的对象了，否则必须在所有函数内部写这一语句，或上述的处理方法。</li>
 </ul>
-<h2 id="四、简单的输入-amp-输出（cout-amp-cin"><a href="#四、简单的输入-amp-输出（cout-amp-cin" class="headerlink" title="四、简单的输入&amp;输出（cout&amp;cin)"></a>四、简单的输入&amp;输出（<em>cout&amp;cin</em>)</h2><p><pre>    cout &lt;&lt; “Hello world!”<br>    cout &lt;&lt; endl;   </pre></p>
+<h2 id="四、简单的输入-amp-输出（cout-amp-cin"><a href="#四、简单的输入-amp-输出（cout-amp-cin" class="headerlink" title="四、简单的输入&amp;输出（cout&amp;cin)"></a>四、简单的输入&amp;输出（<em>cout&amp;cin</em>)</h2><p><pre>cout &lt;&lt; “Hello world!”<br>    cout &lt;&lt; endl;   </pre></p>
 <ul>
 <li><p>以上为一个简单的输出字符串的操作，<code>cout</code> 是一个预定义的对象，其对象表示输出流，<code>&lt;&lt;</code> 是插入运算符，他可以将其右侧的信息插入到输出流中，从而将内容显示在屏幕上。字符串用<code>&quot; &quot;</code>包含起来；</p>
 </li>
@@ -220,7 +220,7 @@ ga('send', 'pageview');
  cout << "The number is" << a << "." << endl;
 </pre> </li>
 <li><code>cout</code>的输出更加智能化，如上述代码，cout可以识别a的类型并输出，不过字符串<em>（string）</em> 必须用双引号引其来。</li>
-<li><code>cin</code>使用<code>&gt;&gt;</code>从输入流中抽取字符并赋给右边的变量，<code>cin</code>可以把抽取到的字符转化为右边的变量可以接受的类型，但类型冲突时会出错。<br><pre>    int a;<br> cin &gt;&gt; a;</pre><h2 id="五、关于类"><a href="#五、关于类" class="headerlink" title="五、关于类"></a>五、关于类</h2></li>
+<li><code>cin</code>使用<code>&gt;&gt;</code>从输入流中抽取字符并赋给右边的变量，<code>cin</code>可以把抽取到的字符转化为右边的变量可以接受的类型，但类型冲突时会出错。<br><pre>int a;<br> cin &gt;&gt; a;</pre><h2 id="五、关于类"><a href="#五、关于类" class="headerlink" title="五、关于类"></a>五、关于类</h2></li>
 <li>类是用户定义的一种数据类型，它描述了一种数据类型的全部属性（包括它包含的信息（数据）以及可对各个数据执行的操作），而对象则是根据这些描述创建的实体。  </li>
 </ul>
 <h2 id="六、代码风格"><a href="#六、代码风格" class="headerlink" title="六、代码风格"></a>六、代码风格</h2><ul>
