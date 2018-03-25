@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://ynayaur.github.io/assets/img/2018031801.png">
 <meta property="og:image" content="https://ynayaur.github.io/assets/img/2018031301.png">
 <meta property="og:image" content="https://ynayaur.github.io/assets/img/2018031802.png">
-<meta property="og:updated_time" content="2018-03-18T08:38:16.511Z">
+<meta property="og:updated_time" content="2018-03-25T07:46:15.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c++学习笔记（二）">
 <meta name="twitter:description" content="一、简单变量变量名： 变量命名时要有一定的含义，增强函数的可读性，c++变量的命名必须遵循一下命名规则： 名称只能由字母、数字和下划线_构成； 名称的首字符只能是字母或下划线_； 大小写敏感，即大小写不同的命名视为两个变量； 不能占用c++的关键字； 以两个下划线或下划线和大写字母打头的名称被保留给实现（编译器及其使用的资源）使用（//例如使用_Donut作为变量名，这样命名不是非法的，所以不会导">
@@ -213,7 +213,7 @@ ga('send', 'pageview');
 </ul>
 </li>
 <li><code>int</code>被设置为计算机的自然长度（natural size），自然长度是指计算机处理起来效率最高的长度，如果没有非常有说服力的理由来选择其它类型，则选<code>int</code>；</li>
-<li><p>整型字面值可表示为八进制（最高位用0来标识）及十六进制 （用0x或0X来标识），<code>cout</code>在进行输出时都会转化为十进制数来输出，如果想要将十进制转化为八进制或十六进制的数输出时，可用控制符hex、oct来控制输出，用dec来控制十进制输出。（控制符hex、oct、dec都在名称空间std中）<pre>int a = 42；<br>cout &lt;&lt; “a= “&lt;&lt; a &lt;&lt; “ decimal for 42” &lt;&lt; endl;<br>cout &lt;&lt; hex;<br>cout &lt;&lt; “a= “&lt;&lt; a &lt;&lt; “ hexadecimal for 42” &lt;&lt; endl;<br>cout &lt;&lt; oct;<br>cout &lt;&lt; “a= “&lt;&lt; a &lt;&lt; “ octal for 42” &lt;&lt; endl;</pre></p>
+<li><p>整型字面值可表示为八进制（最高位用0来标识）及十六进制 （用0x或0X来标识），<code>cout</code>在进行输出时都会转化为十进制数来输出，如果想要将十进制转化为八进制或十六进制的数输出时，可用控制符oct、hex来控制输出，用dec来控制十进制输出。（控制符hex、oct、dec都在名称空间std中）<pre>int a = 42；<br>cout &lt;&lt; “a= “&lt;&lt; a &lt;&lt; “ decimal for 42” &lt;&lt; endl;<br>cout &lt;&lt; hex;<br>cout &lt;&lt; “a= “&lt;&lt; a &lt;&lt; “ hexadecimal for 42” &lt;&lt; endl;<br>cout &lt;&lt; oct;<br>cout &lt;&lt; “a= “&lt;&lt; a &lt;&lt; “ octal for 42” &lt;&lt; endl;</pre></p>
 <p><pre>以上代码的输出结果为:<br>a = 42 decimal for 42<br>a = 2a hexadecimal for 42<br>a = 52 octal for 42</pre><br>注：结束后要想以十进制输出要用语句<pre>cout &lt;&lt; dec;</pre>否则将继续以八进制输出。  </p>
 </li>
 <li><p>可在常量后面用字母限定常量的存储类型：  </p>
@@ -342,6 +342,15 @@ ga('send', 'pageview');
 
   
 <nav id="article-nav">
+  
+    <a href="/2018/03/25/learning of c++ 3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/2018/03/10/learning of c++ 1/" id="article-nav-older" class="article-nav-link-wrap">

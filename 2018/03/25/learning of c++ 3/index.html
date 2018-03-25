@@ -6,14 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ynayaur.github.io">
-  <title>Archives: 2018 | Ynayaur的博客</title>
+  <title>Ynayaur的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="layout posttitle c++学习笔记（二）tags c++    一、数组 声明，声明数组的通用格式如下： typeName arrayName[arraySize];  在使用数组时一定要时刻关注下标的有效性；  数组的初始化规则（只有在声明时才能初始化，在声明之后只能挨个赋值，不能再用{}来初始化），常见的初始化形式如下：   int array[4] = {0,1,2,3};">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Ynayaur的博客">
-<meta property="og:url" content="https://ynayaur.github.io/archives/2018/page/2/index.html">
+<meta property="og:url" content="https://ynayaur.github.io/2018/03/25/learning of c++ 3/index.html">
 <meta property="og:site_name" content="Ynayaur的博客">
+<meta property="og:description" content="layout posttitle c++学习笔记（二）tags c++    一、数组 声明，声明数组的通用格式如下： typeName arrayName[arraySize];  在使用数组时一定要时刻关注下标的有效性；  数组的初始化规则（只有在声明时才能初始化，在声明之后只能挨个赋值，不能再用{}来初始化），常见的初始化形式如下：   int array[4] = {0,1,2,3};">
+<meta property="og:updated_time" content="2018-03-25T13:36:18.936Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ynayaur的博客">
+<meta name="twitter:description" content="layout posttitle c++学习笔记（二）tags c++    一、数组 声明，声明数组的通用格式如下： typeName arrayName[arraySize];  在使用数组时一定要时刻关注下标的有效性；  数组的初始化规则（只有在声明时才能初始化，在声明之后只能挨个赋值，不能再用{}来初始化），常见的初始化形式如下：   int array[4] = {0,1,2,3};">
   
     <link rel="alternative" href="/atom.xml" title="Ynayaur的博客" type="application/atom+xml">
   
@@ -158,128 +162,163 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-learning of c++ 3" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>layout post<br>title c++学习笔记（二）<br>tags c++  </p>
+<hr>
+<h2 id="一、数组"><a href="#一、数组" class="headerlink" title="一、数组"></a>一、数组</h2><ul>
+<li><p>声明，声明数组的通用格式如下：</p>
+<pre><code>typeName arrayName[arraySize];</code></pre>
+</li>
+<li><p>在使用数组时一定要时刻关注下标的有效性；</p>
+</li>
+<li>数组的初始化规则（只有在声明时才能初始化，在声明之后只能挨个赋值，不能再用<code>{}</code>来初始化），常见的初始化形式如下：</li>
+</ul>
+<pre><code> int array[4] = {0,1,2,3};
+ int array[4] = {0};
+ int array[10] = {1};
+ int array[] = {0,1,2,3};</code></pre>
+
+<p>其中第二种初始化方式将整个数组全部初始化为0；第三种初始化方式第一个元素被初始化为1，其它所有元素全部初始化为0；另外在初始化时元素个数可省，编译器会自动根据后面元素的个数确定；在c++11中等号可省；  </p>
+<h2 id="二、字符串"><a href="#二、字符串" class="headerlink" title="二、字符串"></a>二、字符串</h2><p>###1.c风格字符串（字符数组）</p>
+<ul>
+<li>使用方法与c大致相同，在使用时注意给<code>\0</code>字符预留一个字符的空间，字符数组在使用时以<code>\0</code>作为字符串结束的标志，不会做边界检查，所以<strong>一定要注意<code>\0</code></strong>；对于字符常量在用字符数组存储时一般采用上面数组初始化的最后一种方法，这样就可以避免元素个数出错而截断，这种初始化方法会在末尾自动添加<code>\0</code>；  </li>
+<li>以下两种输出方式等价  </li>
+</ul>
+<a id="more"></a>  
+<pre><code>cout << "abcdef.\n";
+cout << "abc"
+"def.\n";</code></pre>   
+
+<ul>
+<li>在头文件<code>cstring</code>中包含一些对字符串操作的函数，其中的<code>strlen()</code>可以来确定字符串的长度（不计<code>\0</code>）;</li>
+<li>对于有空格字符的字符串不能用cin来输入，当cin遇上空格时会截止，此时可以用getline()和get()函数来解决，两个都可以读取一行，getline()通过回车确定输入结尾，在遇到换行符（自动截去换行符，变为<code>\0</code>）或读取到指定数目的字符时停止读取，其有两个参数，第一个参数用来指定存入的数组名称，第二个参数表示要读取的字符数。调用时的格式：</li>
+</ul>
+<pre><code>cin.getline(char*,int);</code></pre>
+
+<ul>
+<li>get()与getline()调用时使用的参数相同，但get不读取换行符，而是将它留在输入队列中，get()不带任何参数，可用作读取一个字符，常用来读取用get()读取一行后，读取输入队列中的换行符防止其对后面的输入产生干扰，这种用法可写作：</li>
+</ul>
+<pre><code>cin.get(char*,int).get;</code></pre>
+
+<ul>
+<li>getline()使用起来较为简单，但get()检查错误更简单，使用get()可以通过读入下一个字符来判断一行是否完整读取，而getline()会设置失效位，关闭后面的输入。</li>
+<li>在cin之后使用getline()，在输完cin之后的回车会留在输入队列中，从而getline会认为这是个空行，而返回空字符，所以这时要用:</li>
+</ul>
+<pre><code>cin.get();
+或
+(cin >> Name).get();</code></pre>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/15/happy new year/" class="archive-article-date">
-  	<time datetime="2018-02-15T15:56:31.009Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/15/happy new year/">Happy New Year</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
-          
-
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ynayaur.github.io/2018/03/25/learning of c++ 3/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/08/welcome/" class="archive-article-date">
-  	<time datetime="2018-02-08T10:50:09.663Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-08</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/03/13/learning of c++ 2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">c++学习笔记（二）</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/08/welcome/">Welcome</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/08/hello-world/" class="archive-article-date">
-  	<time datetime="2018-02-08T07:44:27.258Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/08/hello-world/">Hello World</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/">&laquo; Prev</a><a class="page-number" href="/archives/2018/">1</a><span class="page-number current">2</span>
-    </nav>
   
 
 
@@ -303,8 +342,8 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
