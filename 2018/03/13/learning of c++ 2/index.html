@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://ynayaur.github.io/assets/img/2018031801.png">
 <meta property="og:image" content="https://ynayaur.github.io/assets/img/2018031301.png">
 <meta property="og:image" content="https://ynayaur.github.io/assets/img/2018031802.png">
-<meta property="og:updated_time" content="2018-03-25T07:46:15.104Z">
+<meta property="og:updated_time" content="2018-04-08T13:31:25.751Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="c++学习笔记（二）">
 <meta name="twitter:description" content="一、简单变量变量名： 变量命名时要有一定的含义，增强函数的可读性，c++变量的命名必须遵循一下命名规则： 名称只能由字母、数字和下划线_构成； 名称的首字符只能是字母或下划线_； 大小写敏感，即大小写不同的命名视为两个变量； 不能占用c++的关键字； 以两个下划线或下划线和大写字母打头的名称被保留给实现（编译器及其使用的资源）使用（//例如使用_Donut作为变量名，这样命名不是非法的，所以不会导">
@@ -213,9 +213,22 @@ ga('send', 'pageview');
 </ul>
 </li>
 <li><code>int</code>被设置为计算机的自然长度（natural size），自然长度是指计算机处理起来效率最高的长度，如果没有非常有说服力的理由来选择其它类型，则选<code>int</code>；</li>
-<li><p>整型字面值可表示为八进制（最高位用0来标识）及十六进制 （用0x或0X来标识），<code>cout</code>在进行输出时都会转化为十进制数来输出，如果想要将十进制转化为八进制或十六进制的数输出时，可用控制符oct、hex来控制输出，用dec来控制十进制输出。（控制符hex、oct、dec都在名称空间std中）<pre>int a = 42；<br>cout &lt;&lt; “a= “&lt;&lt; a &lt;&lt; “ decimal for 42” &lt;&lt; endl;<br>cout &lt;&lt; hex;<br>cout &lt;&lt; “a= “&lt;&lt; a &lt;&lt; “ hexadecimal for 42” &lt;&lt; endl;<br>cout &lt;&lt; oct;<br>cout &lt;&lt; “a= “&lt;&lt; a &lt;&lt; “ octal for 42” &lt;&lt; endl;</pre></p>
-<p><pre>以上代码的输出结果为:<br>a = 42 decimal for 42<br>a = 2a hexadecimal for 42<br>a = 52 octal for 42</pre><br>注：结束后要想以十进制输出要用语句<pre>cout &lt;&lt; dec;</pre>否则将继续以八进制输出。  </p>
-</li>
+<li>整型字面值可表示为八进制（最高位用0来标识）及十六进制 （用0x或0X来标识），<code>cout</code>在进行输出时都会转化为十进制数来输出，如果想要将十进制转化为八进制或十六进制的数输出时，可用控制符oct、hex来控制输出，用dec来控制十进制输出。（控制符hex、oct、dec都在名称空间std中）</li>
+</ul>
+<pre><code>int a = 42；  
+cout << "a= "<< a << " decimal for 42" << endl;
+cout << hex;
+cout << "a= "<< a << " hexadecimal for 42" << endl;
+cout << oct;
+cout << "a= "<< a << " octal for 42" << endl;</code></pre>  
+
+  <pre>以上代码的输出结果为:
+   a = 42 decimal for 42
+   a = 2a hexadecimal for 42
+   a = 52 octal for 42</pre>
+
+<p>注：结束后要想以十进制输出要用语句<pre><code>cout &lt;&lt; dec;</code></pre>否则将继续以八进制输出。  </p>
+<ul>
 <li><p>可在常量后面用字母限定常量的存储类型：  </p>
 <ul>
 <li>整数后加l或L表示该整数为long；  </li>
@@ -237,8 +250,11 @@ ga('send', 'pageview');
 <li>浮点常量：无后缀的默认存为double，用f或F作为后缀的存为float，用l或L作为后缀的存为long double。<h2 id="-2"><a href="#-2" class="headerlink" title=" "></a> </h2></li>
 </ul>
 <h2 id="二、简单符号"><a href="#二、简单符号" class="headerlink" title="二、简单符号"></a>二、简单符号</h2><h3 id="const限定符"><a href="#const限定符" class="headerlink" title="const限定符"></a>const限定符</h3><ul>
-<li>const的作用同<code>#define</code>,用符号名来表明常量内容。创建常量的通用格式如下：<br> <pre> conts type name =value;</pre><br>相比#define，const在使用时要指明常量的类型，且const的作用于与其定义的位置有关，同时const必须在声明时赋值，声明之后不允许对其做更改。</li>
+<li>const的作用同<code>#define</code>,用符号名来表明常量内容。创建常量的通用格式如下：</li>
 </ul>
+<pre><code> conts type name =value;</code></pre>
+
+<p>相比#define，const在使用时要指明常量的类型，且const的作用于与其定义的位置有关，同时const必须在声明时赋值，声明之后不允许对其做更改。</p>
 <h3 id="运算符-sizeof"><a href="#运算符-sizeof" class="headerlink" title="运算符 sizeof"></a>运算符 <code>sizeof</code></h3><ul>
 <li>sizeof可以返回类型或变量的长度，单位为字节（byte）。对于类型名（如int）使用sizeof运算符时，应将名称放在括号中；但对变量名（如n_short）使用该运算符时，括号是可选的，即可加可不加。  <ul>
 <li>头文件<code>climits</code>定义了符号常量来表示类型限制，具体如下图所示<br><img src="/assets/img/2018031301.png" alt="Alt text">  </li>
@@ -249,17 +265,28 @@ ga('send', 'pageview');
 <li>c++中的算数运算符同c相同。</li>
 <li>常用符号运算顺序见下图：<br><img src="/assets/img/2018031802.png" alt="Alt text"><h2 id="-3"><a href="#-3" class="headerlink" title=" "></a> </h2><h2 id="三、变量初始化："><a href="#三、变量初始化：" class="headerlink" title="三、变量初始化："></a>三、变量初始化：</h2></li>
 <li>变量在使用前一定要注意<strong>初始化</strong>；</li>
-<li>除c语言中的初始化语法外还有一种初始化方式即对函数进行初始化，即对函数内部的值（形参等）进行初始化如:<pre>int wrens(432);</pre></li>
-<li>c++可用<code>{}</code>来进行初始化，主要用于数组和结构，在c++98中该方式还可用于变量，采用此方式时<code>=</code>可以省略。如:<pre>int rocs{7};  //set rocs to 7</pre>  </li>
-<li>大括号中可以不包含任何东西，在这种情况下，变量将被初始化为零<pre>int rheas{};    //set rheas to 0</pre>  </li>
+<li>除c语言中的初始化语法外还有一种初始化方式即对函数进行初始化，即对函数内部的值（形参等）进行初始化如:</li>
 </ul>
-<h2 id="四、类型转换"><a href="#四、类型转换" class="headerlink" title="四、类型转换"></a>四、类型转换</h2><ul>
-<li>强制类型转换的格式如下：<pre>(typeName) valuename;</pre>
-或者  
-<pre>typeName (valuename);</pre>
+<pre><code>int wrens(432); </code></pre>
 
-</li>
+<ul>
+<li>c++可用<code>{}</code>来进行初始化，主要用于数组和结构，在c++98中该方式还可用于变量，采用此方式时<code>=</code>可以省略。如:</li>
 </ul>
+<pre><code>int rocs{7};  //set rocs to 7</code></pre>  
+
+<ul>
+<li>大括号中可以不包含任何东西，在这种情况下，变量将被初始化为零</li>
+</ul>
+<pre><code>int rheas{};    //set rheas to 0</code></pre>  
+
+<h2 id="四、类型转换"><a href="#四、类型转换" class="headerlink" title="四、类型转换"></a>四、类型转换</h2><ul>
+<li>强制类型转换的格式如下：</li>
+</ul>
+<pre><code>(typeName) valuename;</code></pre>
+
+<p>或者 </p>
+<pre><code>typeName (valuename);</code></pre>
+
 
       
 
