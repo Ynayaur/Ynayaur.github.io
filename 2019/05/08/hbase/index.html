@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="https://ynayaur.github.io">
   <title>HBase环境搭建 | Ynayaur的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在进行HBase环境搭建前，必须确保Hadoop已经搭建成功并可以运行。Hadoop搭建教程。 ###1. 将下载好的压缩包移动至/opt目录下，用以下命令进行解压：        tar -xzvf hbase-test.tar.gz ###2. 配置HBase（以下文件均位于/opt/hbase/conf/)(若Hadoop解压在其它位置，请进到解压后hadoop的文件夹下的conf/）">
+  <meta name="description" content="在进行HBase环境搭建前，必须确保Hadoop已经搭建成功并可以运行。Hadoop搭建教程。 1. 将下载好的压缩包移动至/opt目录下，用以下命令进行解压：tar -xzvf hbase-test.tar.gz 2. 配置HBase（以下文件均位于/opt/hbase/conf/)(若Hadoop解压在其它位置，请进到解压后hadoop的文件夹下的conf/）">
 <meta name="keywords" content="Hadoop,Cloud Computing,HBase">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HBase环境搭建">
 <meta property="og:url" content="https://ynayaur.github.io/2019/05/08/hbase/index.html">
 <meta property="og:site_name" content="Ynayaur的博客">
-<meta property="og:description" content="在进行HBase环境搭建前，必须确保Hadoop已经搭建成功并可以运行。Hadoop搭建教程。 ###1. 将下载好的压缩包移动至/opt目录下，用以下命令进行解压：        tar -xzvf hbase-test.tar.gz ###2. 配置HBase（以下文件均位于/opt/hbase/conf/)(若Hadoop解压在其它位置，请进到解压后hadoop的文件夹下的conf/）">
-<meta property="og:updated_time" content="2019-05-08T14:57:22.665Z">
+<meta property="og:description" content="在进行HBase环境搭建前，必须确保Hadoop已经搭建成功并可以运行。Hadoop搭建教程。 1. 将下载好的压缩包移动至/opt目录下，用以下命令进行解压：tar -xzvf hbase-test.tar.gz 2. 配置HBase（以下文件均位于/opt/hbase/conf/)(若Hadoop解压在其它位置，请进到解压后hadoop的文件夹下的conf/）">
+<meta property="og:updated_time" content="2019-05-08T14:59:02.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HBase环境搭建">
-<meta name="twitter:description" content="在进行HBase环境搭建前，必须确保Hadoop已经搭建成功并可以运行。Hadoop搭建教程。 ###1. 将下载好的压缩包移动至/opt目录下，用以下命令进行解压：        tar -xzvf hbase-test.tar.gz ###2. 配置HBase（以下文件均位于/opt/hbase/conf/)(若Hadoop解压在其它位置，请进到解压后hadoop的文件夹下的conf/）">
+<meta name="twitter:description" content="在进行HBase环境搭建前，必须确保Hadoop已经搭建成功并可以运行。Hadoop搭建教程。 1. 将下载好的压缩包移动至/opt目录下，用以下命令进行解压：tar -xzvf hbase-test.tar.gz 2. 配置HBase（以下文件均位于/opt/hbase/conf/)(若Hadoop解压在其它位置，请进到解压后hadoop的文件夹下的conf/）">
   
     <link rel="alternative" href="/atom.xml" title="Ynayaur的博客" type="application/atom+xml">
   
@@ -184,8 +184,8 @@ ga('send', 'pageview');
     <div class="article-entry" itemprop="articleBody">
       
         <p>在进行HBase环境搭建前，必须确保Hadoop已经搭建成功并可以运行。<a href="https://ynayaur.github.io/2019/05/08/Hadoop/">Hadoop搭建教程</a>。</p>
-<p>###1. 将下载好的压缩包移动至/opt目录下，用以下命令进行解压：<br>        tar -xzvf hbase-test.tar.gz</p>
-<p>###2. 配置HBase（以下文件均位于/opt/hbase/conf/)(若Hadoop解压在其它位置，请进到解压后hadoop的文件夹下的conf/）<br><a id="more"></a></p>
+<h3 id="1-将下载好的压缩包移动至-opt目录下，用以下命令进行解压："><a href="#1-将下载好的压缩包移动至-opt目录下，用以下命令进行解压：" class="headerlink" title="1. 将下载好的压缩包移动至/opt目录下，用以下命令进行解压："></a>1. 将下载好的压缩包移动至/opt目录下，用以下命令进行解压：</h3><pre><code>tar -xzvf hbase-test.tar.gz
+</code></pre><h3 id="2-配置HBase（以下文件均位于-opt-hbase-conf-若Hadoop解压在其它位置，请进到解压后hadoop的文件夹下的conf-）"><a href="#2-配置HBase（以下文件均位于-opt-hbase-conf-若Hadoop解压在其它位置，请进到解压后hadoop的文件夹下的conf-）" class="headerlink" title="2. 配置HBase（以下文件均位于/opt/hbase/conf/)(若Hadoop解压在其它位置，请进到解压后hadoop的文件夹下的conf/）"></a>2. 配置HBase（以下文件均位于/opt/hbase/conf/)(若Hadoop解压在其它位置，请进到解压后hadoop的文件夹下的conf/）</h3><a id="more"></a>
 <ul>
 <li>修改 <code>hbase-env.sh</code> （将<code>JAVA_HOME</code>修改为Java安装的绝对路径）</li>
 </ul>
@@ -234,10 +234,10 @@ ga('send', 'pageview');
 </ul>
 <pre><code>slave1
 slave2
-</code></pre><p>###3. 启动Hbase<br>在启动Hbase之前，请确保Hadoop已成功启动。<br>最好在Hadoop启动两分钟之后在启动Hbase（玄学？）<br>进入hbase/bin目录，执行如下命令:</p>
+</code></pre><h3 id="3-启动Hbase"><a href="#3-启动Hbase" class="headerlink" title="3. 启动Hbase"></a>3. 启动Hbase</h3><p>在启动Hbase之前，请确保Hadoop已成功启动。<br>最好在Hadoop启动两分钟之后在启动Hbase（玄学？）<br>进入hbase/bin目录，执行如下命令:</p>
 <pre><code>start-hbase.sh
 </code></pre><p>可在浏览器中输入master:60020以查看Hbase的相关情况（能出现该界面，且节点信息正确，则说明启动成功）。</p>
-<p>###4. 关闭Hbase<br>在hbase/bin目录里执行如下命令： </p>
+<h3 id="4-关闭Hbase"><a href="#4-关闭Hbase" class="headerlink" title="4. 关闭Hbase"></a>4. 关闭Hbase</h3><p>在hbase/bin目录里执行如下命令： </p>
 <pre><code>stop-hbase.sh
 </code></pre>
       
