@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ynayaur.github.io">
-  <title>Tag: 随笔 | Ynayaur的博客</title>
+  <title>HBase环境搭建 | Ynayaur的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Ynayaur的博客">
-<meta property="og:url" content="https://ynayaur.github.io/tags/随笔/page/2/index.html">
+  <meta name="description" content="在进行HBase环境搭建前，必须确保Hadoop已经搭建成功并可以运行。Hadoop搭建教程。 ###1. 将下载好的压缩包移动至/opt目录下，用以下命令进行解压：        tar -xzvf hbase-test.tar.gz ###2. 配置HBase（以下文件均位于/opt/hbase/conf/)(若Hadoop解压在其它位置，请进到解压后hadoop的文件夹下的conf/）">
+<meta name="keywords" content="Hadoop,Cloud Computing,HBase">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HBase环境搭建">
+<meta property="og:url" content="https://ynayaur.github.io/2019/05/08/hbase/index.html">
 <meta property="og:site_name" content="Ynayaur的博客">
+<meta property="og:description" content="在进行HBase环境搭建前，必须确保Hadoop已经搭建成功并可以运行。Hadoop搭建教程。 ###1. 将下载好的压缩包移动至/opt目录下，用以下命令进行解压：        tar -xzvf hbase-test.tar.gz ###2. 配置HBase（以下文件均位于/opt/hbase/conf/)(若Hadoop解压在其它位置，请进到解压后hadoop的文件夹下的conf/）">
+<meta property="og:updated_time" content="2019-05-08T14:57:22.665Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ynayaur的博客">
+<meta name="twitter:title" content="HBase环境搭建">
+<meta name="twitter:description" content="在进行HBase环境搭建前，必须确保Hadoop已经搭建成功并可以运行。Hadoop搭建教程。 ###1. 将下载好的压缩包移动至/opt目录下，用以下命令进行解压：        tar -xzvf hbase-test.tar.gz ###2. 配置HBase（以下文件均位于/opt/hbase/conf/)(若Hadoop解压在其它位置，请进到解压后hadoop的文件夹下的conf/）">
   
     <link rel="alternative" href="/atom.xml" title="Ynayaur的博客" type="application/atom+xml">
   
@@ -158,101 +163,208 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-hbase" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/15/happy new year/" class="archive-article-date">
-  	<time datetime="2018-02-15T15:56:31.009Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/15/happy new year/">Happy New Year</a>
+    <h1 class="article-title" itemprop="name">
+      HBase环境搭建
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/05/08/hbase/" class="archive-article-date">
+  	<time datetime="2019-05-08T14:57:30.786Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在进行HBase环境搭建前，必须确保Hadoop已经搭建成功并可以运行。<a href="https://ynayaur.github.io/2019/05/08/Hadoop/">Hadoop搭建教程</a>。</p>
+<p>###1. 将下载好的压缩包移动至/opt目录下，用以下命令进行解压：<br>        tar -xzvf hbase-test.tar.gz</p>
+<p>###2. 配置HBase（以下文件均位于/opt/hbase/conf/)(若Hadoop解压在其它位置，请进到解压后hadoop的文件夹下的conf/）<br><a id="more"></a></p>
+<ul>
+<li>修改 <code>hbase-env.sh</code> （将<code>JAVA_HOME</code>修改为Java安装的绝对路径）</li>
+</ul>
+<pre><code>  export JAVA_HOME=/opt/jdk1.8.0_101  
+其中
+
+  export HBASE_MANAGES_ZK=true
+
+表示启动自带的zookeeper。
+</code></pre><ul>
+<li>修改 <code>hbase-site.xml</code> </li>
+</ul>
+<pre><code>&lt;configuration&gt;
+    &lt;property&gt;
+      &lt;name&gt;hbase.rootdir&lt;/name&gt;
+     &lt;value&gt;hdfs://master:9000/hbase&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+      &lt;name&gt;hbase.cluster.distributed&lt;/name&gt;
+      &lt;value&gt;true&lt;/value&gt;
+    &lt;/property&gt;
+        &lt;property&gt;
+                &lt;name&gt;hbase.zookeeper.quorum&lt;/name&gt;
+                &lt;value&gt;master,slave1,slave2&lt;/value&gt;
+                &lt;!--这里是zookeeper集群，填写所有节点的主机名--&gt;
+        &lt;/property&gt;
+        &lt;property&gt;
+            &lt;name&gt;hbase.tmp.dir&lt;/name&gt;
+    &lt;value&gt;file:/opt/hbase/tmp&lt;/value&gt;
+  &lt;/property&gt;
+    &lt;property&gt;
+    &lt;name&gt;hbase.master.port&lt;/name&gt;
+    &lt;value&gt;60000&lt;/value&gt;
+  &lt;/property&gt;
+  &lt;property&gt;
+    &lt;name&gt;hbase.master.info.port&lt;/name&gt;
+    &lt;value&gt;60020&lt;/value&gt;
+  &lt;/property&gt;
+  &lt;property&gt;
+        &lt;name&gt;dfs.replication&lt;/name&gt;
+        &lt;value&gt;1&lt;/value&gt;
+  &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre><ul>
+<li>修改<code>regionservers</code>文件（填写从节点主机名）</li>
+</ul>
+<pre><code>slave1
+slave2
+</code></pre><p>###3. 启动Hbase<br>在启动Hbase之前，请确保Hadoop已成功启动。<br>最好在Hadoop启动两分钟之后在启动Hbase（玄学？）<br>进入hbase/bin目录，执行如下命令:</p>
+<pre><code>start-hbase.sh
+</code></pre><p>可在浏览器中输入master:60020以查看Hbase的相关情况（能出现该界面，且节点信息正确，则说明启动成功）。</p>
+<p>###4. 关闭Hbase<br>在hbase/bin目录里执行如下命令： </p>
+<pre><code>stop-hbase.sh
+</code></pre>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
         		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/02/08/welcome/" class="archive-article-date">
-  	<time datetime="2018-02-08T10:50:09.663Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-02-08</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/02/08/welcome/">Welcome</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
+      		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Cloud Computing</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HBase</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ynayaur.github.io/2019/05/08/hbase/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/05/08/Hadoop/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hadoop集群搭建</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/tags/随笔/">&laquo; Prev</a><a class="page-number" href="/tags/随笔/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -276,9 +388,9 @@ ga('send', 'pageview');
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
