@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://ynayaur.github.io">
-  <title>Happy Birthday | Ynayaur的博客</title>
+  <title>Hadoop集群搭建 | Ynayaur的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="二十了生日快乐啊！">
-<meta name="keywords" content="随笔">
+  <meta name="description" content="一、准备工作1. 修改/etc/hosts文件，添加主机名和IP的映射规则例如在hosts文件中添加下列映射规则：   192.168.1.71    master 192.168.1.72    slave1 192.168.1.73    slave2 此处可以通过ping + 主机名的方式检测hosts文件是否修改成功。 2. 关闭防火墙关闭防火墙： systemctl stop firew">
+<meta name="keywords" content="Hadoop,Cloud Computing">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Happy Birthday">
-<meta property="og:url" content="https://ynayaur.github.io/2018/11/17/birthday/index.html">
+<meta property="og:title" content="Hadoop集群搭建">
+<meta property="og:url" content="https://ynayaur.github.io/2019/05/08/Hadoop/index.html">
 <meta property="og:site_name" content="Ynayaur的博客">
-<meta property="og:description" content="二十了生日快乐啊！">
-<meta property="og:updated_time" content="2018-11-17T15:41:57.063Z">
+<meta property="og:description" content="一、准备工作1. 修改/etc/hosts文件，添加主机名和IP的映射规则例如在hosts文件中添加下列映射规则：   192.168.1.71    master 192.168.1.72    slave1 192.168.1.73    slave2 此处可以通过ping + 主机名的方式检测hosts文件是否修改成功。 2. 关闭防火墙关闭防火墙： systemctl stop firew">
+<meta property="og:image" content="https://ynayaur.github.io/assets/img/javaSearch.jpg">
+<meta property="og:image" content="https://ynayaur.github.io/assets/img/javaVersion.jpg">
+<meta property="og:updated_time" content="2019-05-08T14:52:04.355Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Happy Birthday">
-<meta name="twitter:description" content="二十了生日快乐啊！">
+<meta name="twitter:title" content="Hadoop集群搭建">
+<meta name="twitter:description" content="一、准备工作1. 修改/etc/hosts文件，添加主机名和IP的映射规则例如在hosts文件中添加下列映射规则：   192.168.1.71    master 192.168.1.72    slave1 192.168.1.73    slave2 此处可以通过ping + 主机名的方式检测hosts文件是否修改成功。 2. 关闭防火墙关闭防火墙： systemctl stop firew">
+<meta name="twitter:image" content="https://ynayaur.github.io/assets/img/javaSearch.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Ynayaur的博客" type="application/atom+xml">
   
@@ -163,28 +166,257 @@ ga('send', 'pageview');
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-birthday" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-Hadoop" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Happy Birthday
+      Hadoop集群搭建
     </h1>
   
 
         
-        <a href="/2018/11/17/birthday/" class="archive-article-date">
-  	<time datetime="2018-11-17T15:27:33.734Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-17</time>
+        <a href="/2019/05/08/Hadoop/" class="archive-article-date">
+  	<time datetime="2019-05-08T14:30:58.423Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>二十了<br>生日快乐啊！</p>
+        <h2 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h2><h3 id="1-修改-etc-hosts文件，添加主机名和IP的映射规则"><a href="#1-修改-etc-hosts文件，添加主机名和IP的映射规则" class="headerlink" title="1. 修改/etc/hosts文件，添加主机名和IP的映射规则"></a>1. 修改/etc/hosts文件，添加主机名和IP的映射规则</h3><p>例如在hosts文件中添加下列映射规则：  </p>
+<pre><code>192.168.1.71    master
+192.168.1.72    slave1
+192.168.1.73    slave2
+</code></pre><p>此处可以通过ping + 主机名的方式检测hosts文件是否修改成功。</p>
+<h3 id="2-关闭防火墙"><a href="#2-关闭防火墙" class="headerlink" title="2. 关闭防火墙"></a>2. 关闭防火墙</h3><p>关闭防火墙：</p>
+<pre><code>systemctl stop firewalld.service 
+</code></pre><p>禁用防火墙：</p>
+<pre><code>systemctl disable firewalld.service
+</code></pre><p>查看防火墙状态： </p>
+<pre><code>systemctl status firewalld 或 firewall-cmd --state  
+</code></pre><a id="more"></a>
+<h3 id="3-设置HostName"><a href="#3-设置HostName" class="headerlink" title="3. 设置HostName"></a>3. 设置HostName</h3><pre><code>hostname master
+echo &quot;master&quot; /etc/hostname
+echo &quot;HOSTNAME=master&quot; &gt;&gt; /etc/sysconfig/network
+/etc/init.d/network restart  
+source /etc/profile
+</code></pre><h3 id="4-编辑网络配置"><a href="#4-编辑网络配置" class="headerlink" title="4. 编辑网络配置"></a>4. 编辑网络配置</h3><p>I. 将虚拟机的网络设置改为桥接模式<br>II. 修改/etc/sysconfig/network-scripts/ifcfg-ensXX  </p>
+<pre><code>TYPE=&quot;Ethernet&quot; 
+PROXY_METHOD=&quot;none&quot; 
+BROWSER_ONLY=&quot;no&quot; 
+BOOTPROTO=&quot;static&quot;  # dhcp修改为static 
+DEFROUTE=&quot;yes&quot; 
+IPV4_FAILURE_FATAL=&quot;no&quot; 
+IPV6INIT=&quot;yes&quot; 
+IPV6_AUTOCONF=&quot;yes&quot; 
+IPV6_DEFROUTE=&quot;yes&quot; 
+IPV6_FAILURE_FATAL=&quot;no&quot; 
+IPV6_ADDR_GEN_MODE=&quot;stable-privacy&quot; 
+NAME=&quot;ens33&quot; 
+UUID=&quot;1b3f2aca-39b8-4d7e-9e9e-362052c99aac&quot; 
+DEVICE=&quot;ens33&quot; 
+ONBOOT=&quot;yes&quot;  # 开机⾃启 
+IPADDR=192.168.1.71  # 对应主机的IP 
+NETMASK=255.255.255.0 # ⼦⽹掩码 
+GATEWAY=192.168.1.1  # ⽹关
+</code></pre><h3 id="5-ssh免密登陆设置"><a href="#5-ssh免密登陆设置" class="headerlink" title="5. ssh免密登陆设置"></a>5. ssh免密登陆设置</h3><p>I. 在主节点上执行已下命令，生成密钥</p>
+<pre><code>ssh-keygen -t rsa
+</code></pre><p>期间遇到的选项直接按回车，直到命令结束，之后执行以下命令</p>
+<pre><code>cd ~/.ssh
+cat id_rsa.pub &gt;&gt; authorized_keys
+chmod 600 authorized_keys
+</code></pre><p>II. 密钥分发</p>
+<pre><code>ssh-copy-id root@slave1
+ssh-copy-id root@slave2
+...
+</code></pre><p>此操作会让你输入一次密码，这个密码是发向的主机的root用户的密码（slave1，slave2，…），还会让你选择一次yes/no，这时输入yes回车。</p>
+<p>III. 免密登陆测试</p>
+<p>使用ssh + 主机名登陆到对应的主机节点，如: </p>
+<pre><code>ssh slave1
+</code></pre><p>第一次连接可能会让你输入yes/no，选择yes。 </p>
+<p>连接上之后，可以通过hostname命令来查看当前连接的主机名，如果无误则证明配置成功。（之后使用exit命令退出连接）。 </p>
+<p>之后使用ssh连接到每台机器上，连接成功使用exit退出。</p>
+<h2 id="二、配置Java环境"><a href="#二、配置Java环境" class="headerlink" title="二、配置Java环境"></a>二、配置Java环境</h2><h3 id="1-卸载OpenJDK"><a href="#1-卸载OpenJDK" class="headerlink" title="1. 卸载OpenJDK"></a>1. 卸载OpenJDK</h3><blockquote>
+<p>查找Java的安装位置  </p>
+</blockquote>
+<pre><code>rpm -qa | grep java
+</code></pre><p><img src="/assets/img/javaSearch.jpg" alt="test">  </p>
+<blockquote>
+<p>针对上图给出的结果，其中noarch文件可以不用删除，其余用以下命令删除  </p>
+</blockquote>
+<pre><code>rpm -e --nodeps java-1.7.0-openjdk-headless-1.7.0.171-2.6.13.2.el7.x86_64
+rpm -e --nodeps java-1.7.0-openjdk-1.7.0.171-2.6.13.2.el7.x86_64
+rpm -e --nodeps java-1.8.0-openjdk-headless-1.8.0.161-2.b14.el7.x86_64
+rpm -e --nodeps java-1.8.0-openjdk-1.8.0.161-2.b14.el7.x86_64
+</code></pre><h3 id="2-解压安装JDK"><a href="#2-解压安装JDK" class="headerlink" title="2.解压安装JDK"></a>2.解压安装JDK</h3><blockquote>
+<p>将下载好的压缩包移动至/opt目录下，用以下命令进行解压：  </p>
+</blockquote>
+<pre><code>tar -xzvf jdk-8u101-linux-x64.tar.gz  
+</code></pre><blockquote>
+<p>添加环境变量，在/etc/profile文件末尾加入以下命令并保存，其中<code>JAVA_HOME</code>为上面解压的JDK的绝对路径</p>
+</blockquote>
+<pre><code>#set Java Environment
+export JAVA_HOME=/opt/jdk1.8.0_101
+export JRE_HOME=${JAVA_HOME}/jre
+export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
+export PATH=${JAVA_HOME}/bin:${PATH}
+</code></pre><blockquote>
+<p>之后使用以下命令使上述配置生效</p>
+</blockquote>
+<pre><code>source /etc/profile
+</code></pre><blockquote>
+<p>我们可以通过以下指令来查看是否成功配置</p>
+</blockquote>
+<pre><code>java -version  
+</code></pre><blockquote>
+<p>出现一下结果说明配置成功  </p>
+</blockquote>
+<p><img src="/assets/img/javaVersion.jpg" alt="test">  </p>
+<h2 id="三、Hadoop安装及配置"><a href="#三、Hadoop安装及配置" class="headerlink" title="三、Hadoop安装及配置"></a>三、Hadoop安装及配置</h2><h3 id="1-将下载好的压缩包移动至-opt目录下，用以下命令进行解压："><a href="#1-将下载好的压缩包移动至-opt目录下，用以下命令进行解压：" class="headerlink" title="1. 将下载好的压缩包移动至/opt目录下，用以下命令进行解压："></a>1. 将下载好的压缩包移动至/opt目录下，用以下命令进行解压：</h3><pre><code>tar -xzvf hadoop-2.6.4-test.tar.gz 
+</code></pre><h3 id="2-配置Hadoop（以下文件均位于-opt-hadoop-2-6-4-etc-hadoop-若Hadoop解压在其它位置，请进到解压后hadoop的文件夹下的etc-hadoop-）"><a href="#2-配置Hadoop（以下文件均位于-opt-hadoop-2-6-4-etc-hadoop-若Hadoop解压在其它位置，请进到解压后hadoop的文件夹下的etc-hadoop-）" class="headerlink" title="2. 配置Hadoop（以下文件均位于/opt/hadoop-2.6.4/etc/hadoop/)(若Hadoop解压在其它位置，请进到解压后hadoop的文件夹下的etc/hadoop/）"></a>2. 配置Hadoop（以下文件均位于/opt/hadoop-2.6.4/etc/hadoop/)(若Hadoop解压在其它位置，请进到解压后hadoop的文件夹下的etc/hadoop/）</h3><ul>
+<li>修改 <code>hadoop-env.sh</code> （将<code>JAVA_HOME</code>修改为Java安装的绝对路径）</li>
+</ul>
+<pre><code>export JAVA_HOME=/opt/jdk1.8.0_101
+</code></pre><ul>
+<li>修改<code>core-site.xml</code></li>
+</ul>
+<pre><code>&lt;configuration&gt;
+    &lt;property&gt;
+            &lt;name&gt;fs.defaultFS&lt;/name&gt;
+            &lt;value&gt;hdfs://master:9000&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+            &lt;name&gt;io.file.buffer.size&lt;/name&gt;
+            &lt;value&gt;131072&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+            &lt;name&gt;hadoop.tmp.dir&lt;/name&gt;
+            &lt;value&gt;file:/opt/hadoop-2.6.4/temp/&lt;/value&gt;
+            &lt;description&gt;Abasefor other temporary directories.&lt;/description&gt;
+            &lt;!--这个是hadoop运行时临时目录，可以自己指定，但是要提前创建好文件夹--&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;  
+</code></pre><ul>
+<li>修改<code>hdfs-site.xml</code></li>
+</ul>
+<pre><code>&lt;configuration&gt;
+    &lt;property&gt;
+            &lt;name&gt;dfs.namenode.secondary.http-address&lt;/name&gt;
+            &lt;value&gt;master:9001&lt;/value&gt;
+            &lt;!--此处为master的9001端口，即server1为master--&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+            &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;
+            &lt;value&gt;file:/opt/hadoop-2.6.4/dfs/name&lt;/value&gt;
+    &lt;/property&gt;
 
+    &lt;property&gt;
+            &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;
+            &lt;value&gt;file:/opt/hadoop-2.6.4/dfs/data&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+            &lt;name&gt;dfs.replication&lt;/name&gt;
+            &lt;value&gt;1&lt;/value&gt;
+    &lt;/property&gt;
+
+    &lt;property&gt;
+            &lt;name&gt;dfs.webhdfs.enabled&lt;/name&gt;
+            &lt;value&gt;true&lt;/value&gt;
+
+     &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre><ul>
+<li>修改<code>mapred-site.xml</code></li>
+</ul>
+<pre><code>&lt;configuration&gt;
+    &lt;property&gt;
+            &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
+            &lt;value&gt;yarn&lt;/value&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+            &lt;name&gt;mapreduce.jobhistory.address&lt;/name&gt;
+            &lt;value&gt;master:10020&lt;/value&gt;
+            &lt;!--此处为master的9001端口--&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+            &lt;name&gt;mapreduce.jobhistory.webapp.address&lt;/name&gt;
+            &lt;value&gt;master:50030&lt;/value&gt;
+            &lt;!--此处为master的9001端口--&gt;
+    &lt;/property&gt;
+    &lt;property&gt;
+            &lt;name&gt;mapreduce.reduce.memory.mb&lt;/name&gt;
+            &lt;value&gt;1024&lt;/value&gt;
+    &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre><ul>
+<li>修改<code>slaves</code>文件（这个文件表示从节点，只填写主机名）</li>
+</ul>
+<pre><code>slave1
+slave2
+</code></pre><ul>
+<li>修改<code>yarn-env.sh</code>（同<code>hadoop-env.sh</code>的修改）</li>
+</ul>
+<pre><code>export JAVA_HOME=/opt/jdk1.8.0_101  
+</code></pre><ul>
+<li>修改<code>yarn-site.xml</code></li>
+</ul>
+<pre><code>&lt;configuration&gt;
+
+&lt;!-- Site specific YARN configuration properties --&gt;
+        &lt;property&gt;
+                &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
+                &lt;value&gt;mapreduce_shuffle&lt;/value&gt;
+        &lt;/property&gt;
+
+        &lt;property&gt;
+                &lt;name&gt;yarn.nodemanager.aux-services.mapreduce.shuffle.class&lt;/name&gt;
+                &lt;value&gt;org.apache.hadoop.mapred.ShuffleHandler&lt;/value&gt;
+        &lt;/property&gt;
+
+        &lt;property&gt;
+                &lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;
+                &lt;value&gt;master:8032&lt;/value&gt;
+        &lt;/property&gt;
+
+        &lt;property&gt;
+                &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;
+                &lt;value&gt;master:8030&lt;/value&gt;
+        &lt;/property&gt;
+
+        &lt;property&gt;
+                &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;
+                &lt;value&gt;master:8031&lt;/value&gt;
+        &lt;/property&gt;
+
+        &lt;property&gt;
+                &lt;name&gt;yarn.resourcemanager.admin.address&lt;/name&gt;
+                &lt;value&gt;master:8033&lt;/value&gt;
+        &lt;/property&gt;
+
+        &lt;property&gt;
+                &lt;name&gt;yarn.resourcemanager.webapp.address&lt;/name&gt;
+                &lt;value&gt;master:8088&lt;/value&gt;
+        &lt;/property&gt;
+&lt;/configuration&gt;
+</code></pre><p>对每台机器执行步骤一、二、三，其中部分内容要做对应的修改。</p>
+<h2 id="四、启动Hadoop"><a href="#四、启动Hadoop" class="headerlink" title="四、启动Hadoop"></a>四、启动Hadoop</h2><h3 id="1-格式化主节点"><a href="#1-格式化主节点" class="headerlink" title="1. 格式化主节点"></a>1. 格式化主节点</h3><p>第一次启动Hadoop时要进行一次格式化主节点的操作，先进入hadoop-2.6.4/bin，然后执行以下命令： </p>
+<pre><code>hadoop namenode -format
+</code></pre><p>以后再启动hadoop，就不需要格式化主节点了，会造成数据的丢失。  </p>
+<h3 id="2-启动服务"><a href="#2-启动服务" class="headerlink" title="2. 启动服务"></a>2. 启动服务</h3><p>进到hadoop-2.6.4/sbin/，可以先启动hdfs，再启动yarn，命令如下：</p>
+<pre><code>./start-dfs.sh
+./start-yarn.sh    
+</code></pre><p>也可以直接一步启动：  </p>
+<pre><code>./start-all.sh
+</code></pre><p>如果正常启动，可以在主节点的浏览器中查看master:50070查看hdfs的情况，也可以在master:8088中查看hadoop的相关情况。（能出现这两个界面，且节点信息正确，则说明启动成功）  </p>
+<h3 id="3-关闭Hadoop"><a href="#3-关闭Hadoop" class="headerlink" title="3. 关闭Hadoop"></a>3. 关闭Hadoop</h3><p>如果运行了Hbase，请先关闭Hbase。<br>可以顺序关闭，先关yarn，再关dfs，命令如下：</p>
+<pre><code>./stop-yarn.sh 
+./stop-dfs.sh
+</code></pre><p>也可一键关闭</p>
+<pre><code>./stop-all.sh
+</code></pre>
       
 
       
@@ -197,7 +429,11 @@ ga('send', 'pageview');
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Cloud Computing</a>
         		</li>
       		
 		</ul>
@@ -253,7 +489,7 @@ ga('send', 'pageview');
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://ynayaur.github.io/2018/11/17/birthday/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://ynayaur.github.io/2019/05/08/Hadoop/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -267,18 +503,9 @@ ga('send', 'pageview');
   
 <nav id="article-nav">
   
-    <a href="/2018/12/31/2018to2019/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          2018总结
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/09/04/git/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">git基础命令</div>
+    <a href="/2019/02/04/happy-new-year/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Happy New Year 2019</div>
       <i class="icon-circle-right"></i>
     </a>
   

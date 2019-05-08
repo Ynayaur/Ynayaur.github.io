@@ -160,6 +160,97 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Hadoop" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/05/08/Hadoop/">Hadoop集群搭建</a>
+    </h1>
+  
+
+        
+        <a href="/2019/05/08/Hadoop/" class="archive-article-date">
+  	<time datetime="2019-05-08T14:30:58.423Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-05-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、准备工作"><a href="#一、准备工作" class="headerlink" title="一、准备工作"></a>一、准备工作</h2><h3 id="1-修改-etc-hosts文件，添加主机名和IP的映射规则"><a href="#1-修改-etc-hosts文件，添加主机名和IP的映射规则" class="headerlink" title="1. 修改/etc/hosts文件，添加主机名和IP的映射规则"></a>1. 修改/etc/hosts文件，添加主机名和IP的映射规则</h3><p>例如在hosts文件中添加下列映射规则：  </p>
+<pre><code>192.168.1.71    master
+192.168.1.72    slave1
+192.168.1.73    slave2
+</code></pre><p>此处可以通过ping + 主机名的方式检测hosts文件是否修改成功。</p>
+<h3 id="2-关闭防火墙"><a href="#2-关闭防火墙" class="headerlink" title="2. 关闭防火墙"></a>2. 关闭防火墙</h3><p>关闭防火墙：</p>
+<pre><code>systemctl stop firewalld.service 
+</code></pre><p>禁用防火墙：</p>
+<pre><code>systemctl disable firewalld.service
+</code></pre><p>查看防火墙状态： </p>
+<pre><code>systemctl status firewalld 或 firewall-cmd --state  
+</code></pre>
+        
+          <a class="article-more-a" href="/2019/05/08/Hadoop/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Hadoop</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Cloud Computing</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/05/08/Hadoop/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-happy-new-year" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -651,94 +742,6 @@ ga('send', 'pageview');
 
 
   
-    <article id="post-learning of c++ 1" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/03/10/learning of c++ 1/">c++学习笔记（一）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/03/10/learning of c++ 1/" class="archive-article-date">
-  	<time datetime="2018-03-10T06:34:06.234Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、注释"><a href="#一、注释" class="headerlink" title="一、注释"></a>一、注释</h2><ul>
-<li>行注释<code>//</code>与<em>C</em> 语言中的<code>/* */</code>都可使用；</li>
-<li>尽量使用行注释<code>//</code>来减少出错的机率。  </li>
-</ul>
-<h2 id="二、头文件"><a href="#二、头文件" class="headerlink" title="二、头文件"></a>二、头文件</h2><ul>
-<li><em>c++</em>保留了<em>c</em> 中扩展名为<code>h</code>的头文件；</li>
-<li>纯粹的<em>c++</em>的头文件没有扩展名；</li>
-<li>部分<em>c</em> 的头文件被转换为<em>c++</em> 的头文件，这些文件被重新命名去掉了扩展名<code>h</code>，并在文件名称前面加上前缀名<em>c</em> ，例如转换得到的 <em>c++</em>版本的<code>math.h</code>为<code>cmath</code>；</li>
-<li><em>c++</em>旧式风格的代码的头文件以<code>.h</code>（如 <code>iostream.h</code> ）结尾，与<em>c++</em>新式风格相比，去掉.h不只是形式上的变化<ul>
-<li>例如：如果使用 <code>iostream</code> ，而不是<code>iostream.h</code>，则应该用<code>using namespace std</code>来使<code>iostream</code>中的定义对程序可用。 </li>
-</ul>
-</li>
-</ul>
-        
-          <a class="article-more-a" href="/2018/03/10/learning of c++ 1/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/03/10/learning of c++ 1/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -845,6 +848,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Hadoop, Cloud Computing</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Hadoop</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Cloud Computing</a>
               </li>
             
             <div class="clearfix"></div>
