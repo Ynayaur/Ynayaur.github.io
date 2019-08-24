@@ -160,6 +160,99 @@ ga('send', 'pageview');
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-learning of c++ 3" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/25/learning of c++ 3/">c++学习笔记（三）</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/25/learning of c++ 3/" class="archive-article-date">
+  	<time datetime="2018-03-25T07:46:40.771Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、数组"><a href="#一、数组" class="headerlink" title="一、数组"></a>一、数组</h2><ul>
+<li>声明，声明数组的通用格式如下：</li>
+</ul>
+<pre><code>typeName arrayName[arraySize];</code></pre>
+
+<ul>
+<li>在使用数组时一定要时刻关注下标的有效性；</li>
+<li>数组的初始化规则（只有在声明时才能初始化，在声明之后只能挨个赋值，不能再用<code>{}</code>来初始化），常见的初始化形式如下：</li>
+</ul>
+<pre><code> int array[4] = {0,1,2,3};
+ int array[4] = {0};
+ int array[10] = {1};
+ int array[] = {0,1,2,3};</code></pre>
+
+<p>其中第二种初始化方式将整个数组全部初始化为0；第三种初始化方式第一个元素被初始化为1，其它所有元素全部初始化为0；另外在初始化时元素个数可省，编译器会自动根据后面元素的个数确定；在c++11中等号可省；  </p>
+<h2 id="二、字符串"><a href="#二、字符串" class="headerlink" title="二、字符串"></a>二、字符串</h2><h3 id="1-c风格字符串（字符数组）"><a href="#1-c风格字符串（字符数组）" class="headerlink" title="1.c风格字符串（字符数组）"></a>1.c风格字符串（字符数组）</h3><ul>
+<li>使用方法与c大致相同，在使用时注意给<code>\0</code>字符预留一个字符的空间，字符数组在使用时以<code>\0</code>作为字符串结束的标志，不会做边界检查，所以<strong>一定要注意<code>\0</code></strong>；对于字符常量在用字符数组存储时一般采用上面数组初始化的最后一种方法，这样就可以避免元素个数出错而截断，这种初始化方法会在末尾自动添加<code>\0</code>；  </li>
+</ul>
+        
+          <a class="article-more-a" href="/2018/03/25/learning of c++ 3/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">c++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/25/learning of c++ 3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-learning of c++ 2" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
